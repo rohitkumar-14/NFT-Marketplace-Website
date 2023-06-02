@@ -1,0 +1,69 @@
+<form action="register" id="RegForm" method="post">
+        
+    {% csrf_token %}
+    <label for="first_name" class="form-label">First Name</label>
+    <input type="text" name="first_name" placeholder="Enter your First Name" class="form-control" required>
+    <label for="last_name" class="form-label">Last Name</label>
+    <input type="text" name="last_name" placeholder="Enter your Last Name" class="form-control">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" name="username" placeholder="Enter your Username" class="form-control" required>
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" placeholder="Enter your Email" class="form-control" required>
+    <label for="password1" class="form-label">Password</label>
+    <input type="password" name="password1" placeholder="Enter your Password" class="form-control" required>
+    <label for="password2" class="form-label">Confirm Password</label>
+    <input type="password" name="password2" placeholder="Enter your Confirm Password" class="form-control" required><br>
+    <button type="submit" class="btn btn-secondary">Register</button><br>
+    
+    <a href="{% url 'login' %}">I have already account</a>
+</form><br>
+
+<div class="form-container">
+    <h1>Register Your NFTs Here!</h1>
+    <div class="form-container">
+        <form method="POST" style="margin: 0 auto;">
+            {% csrf_token %}
+            <input type="hidden" name="itemsJson" id="itemsJson">
+            <input type="hidden" name="amount" id="amount">
+            <!-- {% if user.is_authenticated %}
+            <label for="inputname">SELLER NAME</label>
+            <input type="text" class="usere form-control" id="name" name="name" placeholder="{{user.username}}"
+                disabled>
+            {% endif %} -->
+            <label for="inputname">SELLER NAME</label>
+            <input type="text" class="usere form-control" id="name" name="name" placeholder="Enter your name">
+            <label for="inputphone">SELLER PHONE NO.</label>
+            <input type="tel" class="form-control" id="phone" name="phone" pattern="[7-9]{1}[0-9]{9}" required
+                placeholder="Enter your Phone No.">
+            <label for="inputnftName">NFT NAME</label>
+                <input type="text" class="form-control" id="nftName" name="nftName" placeholder="Enter Nft Name"
+                    required>
+            
+
+            <label for="inputcategory">CATEGORIES
+                <select name="dropdown">
+                    <option selected="selected" disabled required>Select from below categories</option>
+                    <option>ART</option>
+                    <option>SPORT</option>
+                    <option>PHOTOGRAPHY</option>
+                    <option>PATTERN</option>
+                </select>
+            </label><br>
+
+            <label for="inputdesc">NFT DESCRIPTION</label>
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Enter Nft description"
+                    required>
+            
+            <label for="inputprice">CURRENT BID</label>
+                <input type="text" class="form-control" id="price" name="price" placeholder="Enter Current Bid"
+                    required>
+            </label>
+
+            <div class="form-group">
+                <label for="img">Select image:</label>
+                <input type="file" name="img" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn">SELL NOW</button>
+        </form>
+
+    </div>
