@@ -55,3 +55,23 @@
 
 
 {% endblock body %}
+{% block script %}
+<script>
+
+  function myFunction() {
+    var x = document.getElementById("password1");
+    var z = document.getElementById("password2");
+    var y = document.getElementById("sp");
+    if (x.type === "password" && z.type === "password") {
+      x.type = "text";
+      z.type = "text";
+      y.innerHTML="Hide Password";
+    }
+    else {
+      x.type = "password";
+      z.type = "password";
+      y.innerHTML="Show Password";
+    }
+  }
+</script>
+{% endblock script %}
